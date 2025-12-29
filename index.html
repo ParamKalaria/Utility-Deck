@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Simple Handy WebApp</title>
+    <title>Utility Deck by Param Kalaria</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -23,69 +23,35 @@
                         "display": ["Space Grotesk", "sans-serif"],
                         "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
                     },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
                 },
             },
         }
     </script>
+    <script src="components.js"></script>
     <style>
         input[type=range] { -webkit-appearance: none; background: transparent; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; }
-        input[type=range]:focus { outline: none; }
-        /* Toast notification animation */
-        @keyframes fade-in-out {
-            0% { opacity: 0; transform: translateY(20px); }
-            10% { opacity: 1; transform: translateY(0); }
-            90% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-10px); }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none; height: 16px; width: 16px;
+            border-radius: 50%; background: #135bec; cursor: pointer;
+            margin-top: -6px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        .toast { animation: fade-in-out 3s forwards; }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%; height: 4px; cursor: pointer; border-radius: 999px; background: #475569;
+        }
+        input[type=range]:focus { outline: none; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased min-h-screen flex flex-col">
     
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
-
-    <nav class="sticky top-0 z-50 border-b border-gray-200 dark:border-border-dark bg-white/80 dark:bg-[#111318]/90 backdrop-blur-md">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-3">
-                    <div class="flex items-center justify-center size-9 rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-[24px]">terminal</span>
-                    </div>
-                    <div>
-                        <h1 class="text-lg font-bold tracking-tight">Simple Handy WebApp</h1>
-                        <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wider uppercase">v1.0.0 DevTools</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <button class="flex items-center justify-center size-9 rounded-lg hover:bg-slate-100 dark:hover:bg-border-dark text-slate-500 dark:text-slate-400 transition-colors">
-                        <span class="material-symbols-outlined text-[20px]">notifications</span>
-                    </button>
-                    <div class="h-6 w-px bg-slate-200 dark:bg-border-dark"></div>
-                    <button class="flex items-center gap-2 pl-2 pr-4 py-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-border-dark transition-colors group">
-                        <div class="size-7 rounded-full bg-gradient-to-tr from-primary to-purple-500 p-0.5">
-                            <div class="h-full w-full rounded-full bg-white dark:bg-background-dark flex items-center justify-center">
-                                <span class="material-symbols-outlined text-[16px] text-primary">person</span>
-                            </div>
-                        </div>
-                        <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Admin</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div id="app-header"></div>
 
     <main class="flex-1 max-w-[1400px] w-full mx-auto p-4 sm:p-6 lg:p-8">
         <div class="mb-8">
-            <h2 class="text-3xl font-bold mb-2">System Utilities</h2>
-            <p class="text-slate-500 dark:text-slate-400 max-w-2xl">
-                Access secure password generation, network intelligence, and file integrity verification tools in one unified workspace.
-            </p>
+            <h2 class="text-3xl font-bold mb-2">Utilities</h2>
+           
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            
             <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-2 bg-blue-500/10 rounded-lg text-blue-500">
@@ -112,7 +78,7 @@
                                 <label class="text-sm font-medium text-slate-700 dark:text-slate-300">Length</label>
                                 <span id="length-val" class="text-sm font-mono bg-slate-100 dark:bg-border-dark px-2 py-0.5 rounded text-primary font-bold">16</span>
                             </div>
-                            <input id="pass-length" class="w-full h-2 bg-slate-200 dark:bg-border-dark rounded-lg appearance-none cursor-pointer accent-primary" max="64" min="8" type="range" value="16"/>
+                            <input id="pass-length" class="w-full h-2 bg-slate-200 dark:bg-border-dark rounded-lg appearance-none cursor-pointer" max="64" min="8" type="range" value="16"/>
                             <div class="flex justify-between text-xs text-slate-400 mt-1 font-mono">
                                 <span>8</span>
                                 <span>64</span>
@@ -133,7 +99,7 @@
                             </label>
                             <label class="flex items-center p-3 rounded-lg border border-gray-200 dark:border-border-dark hover:border-primary/50 cursor-pointer transition-colors bg-slate-50 dark:bg-[#111318]">
                                 <input id="cb-ambiguous" class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 bg-transparent" type="checkbox"/>
-                                <span class="ml-2 text-sm font-medium" title="Exclude I, l, 1, O, 0">Ambiguous</span>
+                                <span class="ml-2 text-sm font-medium">Ambiguous</span>
                             </label>
                         </div>
                     </div>
@@ -152,7 +118,7 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-lg leading-none">Network Intel</h3>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Current connection details</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Dual-Stack Detection</p>
                         </div>
                     </div>
                     <button id="btn-refresh-net" class="text-slate-400 hover:text-primary transition-colors p-1" title="Refresh Data">
@@ -160,15 +126,23 @@
                     </button>
                 </div>
                 <div class="flex-1 flex flex-col gap-4">
-                    <div class="bg-slate-50 dark:bg-[#111318] rounded-xl p-5 border border-gray-200 dark:border-border-dark text-center">
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Your Public IP</p>
-                        <h2 id="net-ip" class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">Loading...</h2>
-                        <div id="net-status" class="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-500 text-xs font-medium opacity-50">
-                            <span class="size-1.5 rounded-full bg-emerald-500"></span>
-                            <span>Checking...</span>
+                    <div class="grid grid-cols-1 gap-3">
+                        <div class="bg-slate-50 dark:bg-[#111318] rounded-lg p-3 border border-gray-200 dark:border-border-dark">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-xs font-bold text-slate-500 uppercase">IPv4</span>
+                                <span id="status-v4" class="size-2 rounded-full bg-slate-300"></span>
+                            </div>
+                            <div id="net-ipv4" class="font-mono text-sm font-medium text-slate-900 dark:text-white truncate">Checking...</div>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-[#111318] rounded-lg p-3 border border-gray-200 dark:border-border-dark">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-xs font-bold text-slate-500 uppercase">IPv6</span>
+                                <span id="status-v6" class="size-2 rounded-full bg-slate-300"></span>
+                            </div>
+                            <div id="net-ipv6" class="font-mono text-sm font-medium text-slate-900 dark:text-white truncate">Checking...</div>
                         </div>
                     </div>
-                    <div class="space-y-3 mt-2">
+                    <div class="space-y-3 mt-2 pt-2 border-t border-gray-100 dark:border-border-dark/50">
                         <div class="flex justify-between items-center py-2 border-b border-gray-100 dark:border-border-dark/50">
                             <span class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-[18px]">dns</span> ISP
@@ -181,26 +155,6 @@
                             </span>
                             <span id="net-loc" class="text-sm font-medium text-right text-slate-400">---</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-gray-100 dark:border-border-dark/50">
-                            <span class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[18px]">schedule</span> Timezone
-                            </span>
-                            <span id="net-time" class="text-sm font-medium text-right text-slate-400">---</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-gray-100 dark:border-border-dark/50">
-                            <span class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[18px]">router</span> Protocol
-                            </span>
-                            <span id="net-proto" class="text-sm font-medium text-right text-slate-400">---</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-6 h-32 w-full rounded-lg overflow-hidden relative group">
-                    <img alt="Map Background" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" src="https://imgs.search.brave.com/J_eQ6X_nJqK_N-WjTqXzYyVqL9z_k_Z_XqL9z_k_Z_X/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAzLzExLzMyLzkw/LzM2MF9GXzMxMTMy/OTAwN19RN3lhcWkx/enR6a2QxcjJ2N0Qx/aUl0ekg0ajJ6N2Qx/aS5qcGc"/>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <a id="btn-map" href="#" target="_blank" class="bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white text-xs font-bold py-1.5 px-3 rounded-full border border-white/20 transition-colors cursor-pointer no-underline">
-                            View on Map
-                        </a>
                     </div>
                 </div>
             </div>
@@ -217,7 +171,6 @@
                 </div>
                 <div class="flex-1 flex flex-col gap-4">
                     <input type="file" id="file-input" class="hidden">
-                    
                     <div id="drop-zone" class="relative group cursor-pointer">
                         <div class="border-2 border-dashed border-gray-200 dark:border-border-dark rounded-lg p-3 flex items-center gap-4 hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-[#111318] transition-all">
                             <div class="size-10 rounded-full bg-slate-100 dark:bg-[#111318] flex items-center justify-center text-slate-400 group-hover:text-primary transition-colors">
@@ -229,7 +182,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="file-info-panel" class="opacity-50 pointer-events-none transition-opacity bg-slate-50 dark:bg-[#111318] rounded-xl border border-gray-200 dark:border-border-dark p-4 flex flex-col gap-4">
                         <div class="flex items-center gap-3">
                             <div class="size-10 rounded-lg bg-white dark:bg-surface-dark border border-gray-200 dark:border-border-dark flex items-center justify-center text-red-500 shadow-sm">
@@ -254,7 +206,7 @@
                                 <span id="file-type" class="font-medium text-slate-700 dark:text-slate-200">--</span>
                             </div>
                             <div class="bg-white dark:bg-surface-dark p-2 rounded border border-gray-200 dark:border-border-dark">
-                                <span class="text-slate-400 block text-[9px] uppercase tracking-wider mb-0.5">Access</span>
+                                <span class="text-slate-400 block text-[9px] uppercase tracking-wider mb-0.5">Permissions</span>
                                 <span class="font-medium text-slate-700 dark:text-slate-200">Read/Write</span>
                             </div>
                             <div class="bg-white dark:bg-surface-dark p-2 rounded border border-gray-200 dark:border-border-dark col-span-2">
@@ -272,251 +224,195 @@
         </div>
     </main>
 
-    <footer class="border-t border-gray-200 dark:border-border-dark mt-auto bg-white dark:bg-[#111318]">
-        <div class="max-w-[1400px] mx-auto py-8 px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                    <span class="material-symbols-outlined text-[18px]">terminal</span>
-                    <span class="font-medium">Utility Dashboard</span>
-                    <span>© 2023</span>
-                </div>
-                <div class="flex gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
-                    <a class="hover:text-primary transition-colors" href="#">Privacy</a>
-                    <a class="hover:text-primary transition-colors" href="#">Terms</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="app-footer"></div>
 
     <script>
-        // --- UTILITIES ---
-        const showToast = (message, type = 'info') => {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            const bgColor = type === 'success' ? 'bg-emerald-500' : 'bg-slate-800';
-            toast.className = `${bgColor} text-white px-4 py-2 rounded shadow-lg text-sm font-medium toast`;
-            toast.innerText = message;
-            container.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        };
-
-        // --- MODULE 1: PASSWORD GENERATOR ---
-        const passOutput = document.getElementById('pass-output');
-        const passLength = document.getElementById('pass-length');
-        const lengthVal = document.getElementById('length-val');
-        const cbUpper = document.getElementById('cb-uppercase');
-        const cbNumbers = document.getElementById('cb-numbers');
-        const cbSymbols = document.getElementById('cb-symbols');
-        const cbAmbiguous = document.getElementById('cb-ambiguous');
-        const btnGenerate = document.getElementById('btn-generate');
-        const btnCopy = document.getElementById('btn-copy');
-
-        const CHARS = {
-            lower: 'abcdefghijklmnopqrstuvwxyz',
-            upper: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-            number: '0123456789',
-            symbol: '!@#$%^&*()_+-=[]{}|;:,.<>?',
-            ambiguous: 'Il1O0' // Characters that look alike
-        };
-
-        const generatePassword = () => {
-            let charset = CHARS.lower;
-            if (cbUpper.checked) charset += CHARS.upper;
-            if (cbNumbers.checked) charset += CHARS.number;
-            if (cbSymbols.checked) charset += CHARS.symbol;
+        document.addEventListener('DOMContentLoaded', () => {
+            // ... (Keep your existing JS logic here for Passwords, Network, Files)
+            // Or you can leave it as it was in the previous file.
             
-            // If Ambiguous is CHECKED, remove confusing chars
-            if (cbAmbiguous.checked) {
-                const ambiguousArr = CHARS.ambiguous.split('');
-                // Escape special regex chars if necessary (none in this simple set)
-                const regex = new RegExp(`[${CHARS.ambiguous}]`, 'g');
-                charset = charset.replace(regex, '');
-            }
+            // --- MODULE 1: PASSWORD GENERATOR ---
+            const passEls = {
+                output: document.getElementById('pass-output'),
+                slider: document.getElementById('pass-length'),
+                lenText: document.getElementById('length-val'),
+                upper: document.getElementById('cb-uppercase'),
+                nums: document.getElementById('cb-numbers'),
+                syms: document.getElementById('cb-symbols'),
+                ambig: document.getElementById('cb-ambiguous'),
+                btnGen: document.getElementById('btn-generate'),
+                btnCopy: document.getElementById('btn-copy')
+            };
+            const generatePass = () => {
+                const len = parseInt(passEls.slider.value);
+                passEls.lenText.textContent = len;
+                const chars = {
+                    l: 'abcdefghijklmnopqrstuvwxyz',
+                    u: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                    n: '0123456789',
+                    s: '!@#$%^&*()_+-=[]{}|;:,.<>?'
+                };
+                let charset = chars.l;
+                if(passEls.upper.checked) charset += chars.u;
+                if(passEls.nums.checked) charset += chars.n;
+                if(passEls.syms.checked) charset += chars.s;
+                if(passEls.ambig.checked) { charset = charset.replace(/[Il1O0]/g, ''); }
+                if(!charset) return;
+                const arr = new Uint32Array(len);
+                crypto.getRandomValues(arr);
+                passEls.output.value = Array.from(arr, x => charset[x % charset.length]).join('');
+            };
+            passEls.slider.addEventListener('input', generatePass);
+            [passEls.upper, passEls.nums, passEls.syms, passEls.ambig].forEach(c => c.addEventListener('change', generatePass));
+            passEls.btnGen.addEventListener('click', generatePass);
+            passEls.btnCopy.addEventListener('click', () => {
+                navigator.clipboard.writeText(passEls.output.value);
+                const oldHTML = passEls.btnCopy.innerHTML;
+                passEls.btnCopy.innerHTML = '<span class="material-symbols-outlined text-green-500">check</span>';
+                setTimeout(() => passEls.btnCopy.innerHTML = oldHTML, 1500);
+            });
+            generatePass(); 
 
-            if (!charset) return; // Fallback safety
+            // --- MODULE 2: NETWORK INTEL (Robust) ---
+            const netEls = {
+                v4: document.getElementById('net-ipv4'),
+                v6: document.getElementById('net-ipv6'),
+                statusV4: document.getElementById('status-v4'),
+                statusV6: document.getElementById('status-v6'),
+                isp: document.getElementById('net-isp'),
+                loc: document.getElementById('net-loc'),
+                btn: document.getElementById('btn-refresh-net')
+            };
+            const fetchNet = async () => {
+                netEls.v4.textContent = "Checking...";
+                netEls.v6.textContent = "Checking...";
+                netEls.statusV4.className = "size-2 rounded-full bg-yellow-400 animate-pulse";
+                netEls.statusV6.className = "size-2 rounded-full bg-yellow-400 animate-pulse";
+                netEls.isp.textContent = "---";
+                netEls.loc.textContent = "---";
+                let detectedIp = null;
+                // V4
+                const v4Providers = ['https://api.ipify.org?format=json', 'https://ipv4.icanhazip.com', 'https://ipv4.seeip.org/jsonip'];
+                let v4Found = false;
+                for (const url of v4Providers) {
+                    try {
+                        const res = await fetch(url);
+                        if (!res.ok) continue;
+                        let ip = "";
+                        if (url.includes('icanhazip')) ip = (await res.text()).trim();
+                        else ip = (await res.json()).ip;
+                        if (ip) {
+                            netEls.v4.textContent = ip;
+                            netEls.statusV4.className = "size-2 rounded-full bg-emerald-500";
+                            v4Found = true;
+                            if (!detectedIp) detectedIp = ip;
+                            break; 
+                        }
+                    } catch (e) {}
+                }
+                if (!v4Found) {
+                    netEls.v4.textContent = "Not Available";
+                    netEls.statusV4.className = "size-2 rounded-full bg-slate-500";
+                }
+                // V6
+                const v6Providers = ['https://api6.ipify.org?format=json', 'https://ipv6.icanhazip.com', 'https://ipv6.seeip.org/jsonip'];
+                let v6Found = false;
+                for (const url of v6Providers) {
+                    try {
+                        const res = await fetch(url);
+                        if (!res.ok) continue;
+                        let ip = "";
+                        if (url.includes('icanhazip')) ip = (await res.text()).trim();
+                        else ip = (await res.json()).ip;
+                        if (ip) {
+                            netEls.v6.textContent = ip;
+                            netEls.statusV6.className = "size-2 rounded-full bg-emerald-500";
+                            v6Found = true;
+                            if (!detectedIp) detectedIp = ip; 
+                            break;
+                        }
+                    } catch (e) {}
+                }
+                if (!v6Found) {
+                    netEls.v6.textContent = "Not Available";
+                    netEls.statusV6.className = "size-2 rounded-full bg-slate-500";
+                }
+                // Geo
+                if (detectedIp) {
+                    try {
+                        const geoRes = await fetch(`https://ipapi.co/${detectedIp}/json/`);
+                        if (geoRes.ok) {
+                            const data = await geoRes.json();
+                            netEls.isp.textContent = data.org || data.asn;
+                            netEls.loc.textContent = `${data.city}, ${data.country_code}`;
+                        }
+                    } catch (e) {
+                         try {
+                            const fallbackRes = await fetch(`https://ipwho.is/${detectedIp}`);
+                            const data = await fallbackRes.json();
+                            netEls.isp.textContent = data.connection?.isp || "Unknown";
+                            netEls.loc.textContent = `${data.city}, ${data.country_code}`;
+                        } catch (err) { netEls.isp.textContent = "Geo Blocked"; }
+                    }
+                }
+            };
+            netEls.btn.addEventListener('click', fetchNet);
+            fetchNet();
 
-            let password = '';
-            const len = passLength.value;
-            for (let i = 0; i < len; i++) {
-                const randomIndex = Math.floor(Math.random() * charset.length);
-                password += charset[randomIndex];
-            }
-            passOutput.value = password;
-        };
-
-        passLength.addEventListener('input', (e) => {
-            lengthVal.innerText = e.target.value;
-            generatePassword();
-        });
-
-        [cbUpper, cbNumbers, cbSymbols, cbAmbiguous].forEach(el => {
-            el.addEventListener('change', generatePassword);
-        });
-
-        btnGenerate.addEventListener('click', generatePassword);
-
-        btnCopy.addEventListener('click', () => {
-            navigator.clipboard.writeText(passOutput.value).then(() => {
-                showToast('Password copied to clipboard!', 'success');
+            // --- MODULE 3: FILE VIEWER ---
+            const fEls = {
+                drop: document.getElementById('drop-zone'),
+                input: document.getElementById('file-input'),
+                panel: document.getElementById('file-info-panel'),
+                name: document.getElementById('file-name'),
+                meta: document.getElementById('file-meta'),
+                hash: document.getElementById('file-hash'),
+                type: document.getElementById('file-type'),
+                time: document.getElementById('file-time'),
+                btnExp: document.getElementById('btn-export')
+            };
+            let currentFileData = null;
+            fEls.drop.addEventListener('click', () => fEls.input.click());
+            fEls.drop.addEventListener('dragover', (e) => { e.preventDefault(); fEls.drop.firstElementChild.classList.add('border-primary', 'bg-primary/5'); });
+            fEls.drop.addEventListener('dragleave', (e) => { e.preventDefault(); fEls.drop.firstElementChild.classList.remove('border-primary', 'bg-primary/5'); });
+            fEls.drop.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fEls.drop.firstElementChild.classList.remove('border-primary', 'bg-primary/5');
+                if (e.dataTransfer.files.length) processFile(e.dataTransfer.files[0]);
+            });
+            fEls.input.addEventListener('change', (e) => { if (e.target.files.length) processFile(e.target.files[0]); });
+            const processFile = async (file) => {
+                if(!file) return;
+                fEls.panel.classList.remove('opacity-50', 'pointer-events-none');
+                fEls.hash.textContent = "Calculating SHA-256...";
+                fEls.btnExp.disabled = true;
+                const size = file.size < 1024 * 1024 ? (file.size / 1024).toFixed(2) + ' KB' : (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+                fEls.name.textContent = file.name;
+                fEls.meta.textContent = `${size} • ${new Date().toLocaleDateString()}`;
+                fEls.type.textContent = file.type || 'Unknown';
+                fEls.time.textContent = new Date(file.lastModified).toUTCString();
+                try {
+                    const arrayBuffer = await file.arrayBuffer();
+                    const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer);
+                    const hashArray = Array.from(new Uint8Array(hashBuffer));
+                    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                    fEls.hash.textContent = hashHex;
+                    fEls.btnExp.disabled = false;
+                    currentFileData = { name: file.name, size: size, type: file.type, hash: hashHex, modified: fEls.time.textContent };
+                } catch (e) { fEls.hash.textContent = "Error calculating hash"; }
+            };
+            fEls.btnExp.addEventListener('click', () => {
+                if(!currentFileData) return;
+                const content = `FILE INTEGRITY REPORT\n=====================\nGenerated: ${new Date().toLocaleString()}\n\nFile: ${currentFileData.name}\nSize: ${currentFileData.size}\nType: ${currentFileData.type}\nModified: ${currentFileData.modified}\nSHA-256: ${currentFileData.hash}\n\nStatus: Verified Locally`;
+                const blob = new Blob([content], {type: 'text/plain'});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `report_${currentFileData.name}.txt`;
+                a.click();
+                URL.revokeObjectURL(url);
             });
         });
-
-        // Initialize password on load
-        generatePassword();
-
-
-        // --- MODULE 2: NETWORK INTEL ---
-        const netIp = document.getElementById('net-ip');
-        const netStatus = document.getElementById('net-status');
-        const netIsp = document.getElementById('net-isp');
-        const netLoc = document.getElementById('net-loc');
-        const netTime = document.getElementById('net-time');
-        const netProto = document.getElementById('net-proto');
-        const btnRefreshNet = document.getElementById('btn-refresh-net');
-        const btnMap = document.getElementById('btn-map');
-
-        const fetchNetworkInfo = async () => {
-            // UI Loading State
-            netIp.innerText = 'Loading...';
-            netStatus.className = "mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-yellow-500/10 text-yellow-500 text-xs font-medium animate-pulse";
-            netStatus.innerHTML = '<span class="size-1.5 rounded-full bg-yellow-500"></span><span>Fetching...</span>';
-
-            try {
-                // Using a free public API (ipapi.co)
-                const response = await fetch('https://ipapi.co/json/');
-                if(!response.ok) throw new Error("API Limit or Error");
-                const data = await response.json();
-
-                netIp.innerText = data.ip;
-                netIsp.innerText = data.org || data.asn;
-                netLoc.innerText = `${data.city}, ${data.country_code}`;
-                netTime.innerText = data.timezone;
-                netProto.innerText = data.version || 'IPv4'; // Usually returns IPv4/6
-                
-                // Update Map Link
-                if(data.latitude && data.longitude) {
-                    btnMap.href = `https://www.google.com/maps/search/?api=1&query=${data.latitude},${data.longitude}`;
-                }
-
-                // UI Success State
-                netStatus.className = "mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-500 text-xs font-medium";
-                netStatus.innerHTML = '<span class="size-1.5 rounded-full bg-emerald-500 animate-pulse"></span><span>Online</span>';
-
-            } catch (error) {
-                console.error(error);
-                netIp.innerText = "Error";
-                netStatus.className = "mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-red-500/10 text-red-500 text-xs font-medium";
-                netStatus.innerHTML = '<span class="size-1.5 rounded-full bg-red-500"></span><span>Offline</span>';
-                showToast('Failed to fetch network info', 'error');
-            }
-        };
-
-        btnRefreshNet.addEventListener('click', fetchNetworkInfo);
-        fetchNetworkInfo(); // Init on load
-
-
-        // --- MODULE 3: FILE METADATA VIEWER ---
-        const dropZone = document.getElementById('drop-zone');
-        const fileInput = document.getElementById('file-input');
-        const fileInfoPanel = document.getElementById('file-info-panel');
-        const fileName = document.getElementById('file-name');
-        const fileMeta = document.getElementById('file-meta');
-        const fileHash = document.getElementById('file-hash');
-        const fileType = document.getElementById('file-type');
-        const fileTime = document.getElementById('file-time');
-        const btnExport = document.getElementById('btn-export');
-        
-        let currentFileAnalysis = null;
-
-        // Click to upload
-        dropZone.addEventListener('click', () => fileInput.click());
-
-        // Drag & Drop effects
-        dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropZone.firstElementChild.classList.add('border-primary', 'bg-primary/5');
-        });
-        dropZone.addEventListener('dragleave', (e) => {
-            e.preventDefault();
-            dropZone.firstElementChild.classList.remove('border-primary', 'bg-primary/5');
-        });
-
-        const handleFile = async (file) => {
-            if(!file) return;
-
-            // Reset UI
-            fileInfoPanel.classList.remove('opacity-50', 'pointer-events-none');
-            fileHash.innerText = "Calculating SHA-256...";
-            btnExport.disabled = true;
-
-            // Format Size
-            const size = file.size < 1024 * 1024 
-                ? (file.size / 1024).toFixed(2) + ' KB'
-                : (file.size / (1024 * 1024)).toFixed(2) + ' MB';
-
-            // Update Basic Info
-            fileName.innerText = file.name;
-            fileMeta.innerText = `${size}`;
-            fileType.innerText = file.type || 'Unknown';
-            fileTime.innerText = new Date(file.lastModified).toUTCString();
-
-            // Calculate Hash
-            try {
-                const arrayBuffer = await file.arrayBuffer();
-                const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-                
-                fileHash.innerText = hashHex;
-                btnExport.disabled = false;
-
-                // Store for export
-                currentFileAnalysis = {
-                    name: file.name,
-                    size: size,
-                    type: file.type,
-                    modified: fileTime.innerText,
-                    hash: hashHex
-                };
-
-                showToast('File analysis complete', 'success');
-            } catch (e) {
-                fileHash.innerText = "Error calculating hash";
-                console.error(e);
-            }
-        };
-
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.firstElementChild.classList.remove('border-primary', 'bg-primary/5');
-            if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length) handleFile(e.target.files[0]);
-        });
-
-        // Export Report
-        btnExport.addEventListener('click', () => {
-            if(!currentFileAnalysis) return;
-            
-            const content = `FILE SECURITY REPORT\n--------------------\nGenerated: ${new Date().toLocaleString()}\n\n` +
-                            `File Name: ${currentFileAnalysis.name}\n` +
-                            `Size:      ${currentFileAnalysis.size}\n` +
-                            `Type:      ${currentFileAnalysis.type}\n` +
-                            `Modified:  ${currentFileAnalysis.modified}\n` +
-                            `SHA-256:   ${currentFileAnalysis.hash}\n\n` +
-                            `Status: Verified Integrity`;
-            
-            const blob = new Blob([content], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `report_${currentFileAnalysis.name}.txt`;
-            a.click();
-            URL.revokeObjectURL(url);
-        });
-
     </script>
 </body>
 </html>

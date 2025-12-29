@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Privacy Policy - Utility Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { "primary": "#135bec", "background-light": "#f6f6f8", "background-dark": "#101622", "surface-dark": "#1a1d24", "border-dark": "#282e39" },
+                    fontFamily: { "display": ["Space Grotesk", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+    <script src="components.js"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased min-h-screen flex flex-col">
+    
+    <div id="app-header"></div>
+
+    <main class="flex-1 max-w-3xl mx-auto w-full p-4 sm:p-6 lg:p-8">
+        <h1 class="text-3xl font-bold mb-6">Privacy Policy</h1>
+        <div class="prose dark:prose-invert prose-slate max-w-none text-slate-600 dark:text-slate-300">
+            <p><strong>Effective Date:</strong> 30 December 2025</p>
+
+            <br>
+
+            <h3>1. Data Processing</h3>
+            <p>Utility Deck is a client-side tool. This means that for most operations, your data does not leave your browser.</p>
+            <ul><br>
+                <li><strong>Passwords:</strong> Generated locally on your device. We do not see, store, or transmit them.</li><br>
+                <li><strong>Files:</strong> Hash calculations happen within your browser. Files are not uploaded to any server.</li><br>
+            </ul>
+            
+            <br><br>
+
+            <h3>2. External Services</h3>
+            <p>To provide Network Intelligence, we query public APIs (such as ipify, icanhazip, ipapi.co) to retrieve your connection details. These requests are made directly from your browser to the service provider.</p>
+            
+            <br><br>
+
+            <h3>3. No Tracking</h3>
+            <p>We do not use cookies or tracking pixels. We do not collect personal analytics.</p>
+        </div>
+    </main>
+
+    <div id="app-footer"></div>
+</body>
+</html>

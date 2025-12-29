@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About - Utility Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { "primary": "#135bec", "background-light": "#f6f6f8", "background-dark": "#101622", "surface-dark": "#1a1d24", "border-dark": "#282e39" },
+                    fontFamily: { "display": ["Space Grotesk", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+    <script src="components.js"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased min-h-screen flex flex-col">
+    
+    <div id="app-header"></div>
+
+    <main class="flex-1 max-w-3xl mx-auto w-full p-4 sm:p-6 lg:p-8">
+        <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-8 shadow-sm">
+            <div class="mb-10 border-b border-gray-100 dark:border-border-dark/50 pb-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-primary/10 rounded-lg text-primary">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <h1 class="text-3xl font-bold">About Utility Deck</h1>
+                </div>
+                <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-lg">
+                    Utility Deck is a suite of browser-based tools designed for quick, secure access to common technical needs. Built with privacy and performance in mind, it operates almost entirely on the client side.
+                </p>
+            </div>
+            
+            <div class="mb-8">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-slate-400">person</span>
+                    Meet the Developer
+                </h2>
+                <div class="bg-slate-50 dark:bg-[#111318] rounded-xl p-6 border border-gray-200 dark:border-border-dark flex flex-col sm:flex-row gap-6 items-start">
+                    <div class="size-16 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shrink-0">PK</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Param Kalaria</h3>
+                        <p class="text-sm text-primary font-medium mb-3">Creator</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                            Motivated Cyber Security professional and Master’s graduate with a strong foundation in SecOps, Vulnerability Assessment, and Incident Response. Proven ability to build custom security tools using Python and Docker, and translate complex technical concepts into training for engineering professionals. A proactive problem-solver capable of executing technical tasks autonomously to enhance organizational security posture.
+                        </p>
+                        <a href="https://www.linkedin.com/in/param-kalaria" target="_blank" class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#006396] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-sm">
+                            <span class="material-symbols-outlined text-[18px]">link</span>
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-xl font-bold mb-4 mt-8">Core Principles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 rounded-lg bg-slate-50 dark:bg-[#111318] border border-gray-200 dark:border-border-dark">
+                    <span class="material-symbols-outlined text-blue-500 mb-2">lock</span>
+                    <h3 class="font-bold">Secure</h3>
+                    <p class="text-xs text-slate-500">Local processing for passwords and file hashes.</p>
+                </div>
+                <div class="p-4 rounded-lg bg-slate-50 dark:bg-[#111318] border border-gray-200 dark:border-border-dark">
+                    <span class="material-symbols-outlined text-emerald-500 mb-2">bolt</span>
+                    <h3 class="font-bold">Fast</h3>
+                    <p class="text-xs text-slate-500">Built on Tailwind CSS and Vanilla JS.</p>
+                </div>
+                <div class="p-4 rounded-lg bg-slate-50 dark:bg-[#111318] border border-gray-200 dark:border-border-dark">
+                    <span class="material-symbols-outlined text-purple-500 mb-2">public</span>
+                    <h3 class="font-bold">Dual Stack</h3>
+                    <p class="text-xs text-slate-500">Advanced IPv4 and IPv6 network intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div id="app-footer"></div>
+</body>
+</html>
