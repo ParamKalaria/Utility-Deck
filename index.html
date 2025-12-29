@@ -3,7 +3,49 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Utility Deck by Param Kalaria</title>
+    
+    <title>Utility Deck - Secure Password Generator, Network Intel & File Hashes</title>
+    <meta name="title" content="Utility Deck - Secure Password Generator, Network Intel & File Hashes">
+    <meta name="description" content="Free, privacy-first developer tools. Generate strong passwords, detect IPv4/IPv6 network details, and verify SHA-256 file hashes locally in your browser.">
+    <meta name="keywords" content="password generator, strong password, ip address lookup, ipv6 check, file hash calculator, sha256 viewer, client side tools, Param Kalaria, Cloudflare Pages">
+    <meta name="author" content="Param Kalaria">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://utility-deck.pages.dev/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://utility-deck.pages.dev/">
+    <meta property="og:title" content="Utility Deck by Param Kalaria">
+    <meta property="og:description" content="A suite of secure, client-side utilities. Generate passwords, check network stats, and verify files instantly without server uploads.">
+    <meta property="og:image" content="https://utility-deck.pages.dev/og-image.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://utility-deck.pages.dev/">
+    <meta property="twitter:title" content="Utility Deck - Secure Browser Utilities">
+    <meta property="twitter:description" content="Secure, client-side tools for developers and power users.">
+    <meta property="twitter:image" content="https://utility-deck.pages.dev/og-image.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Utility Deck",
+      "url": "https://utility-deck.pages.dev/",
+      "description": "A client-side suite of system utilities including password generation, network intelligence, and file integrity verification.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Browser",
+      "author": {
+        "@type": "Person",
+        "name": "Param Kalaria",
+        "url": "https://www.linkedin.com/in/param-kalaria"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -47,8 +89,10 @@
 
     <main class="flex-1 max-w-[1400px] w-full mx-auto p-4 sm:p-6 lg:p-8">
         <div class="mb-8">
-            <h2 class="text-3xl font-bold mb-2">Utilities</h2>
-           
+            <h2 class="text-3xl font-bold mb-2">System Utilities</h2>
+            <p class="text-slate-500 dark:text-slate-400 max-w-2xl">
+                Access secure password generation, network intelligence, and file integrity verification tools.
+            </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -228,8 +272,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // ... (Keep your existing JS logic here for Passwords, Network, Files)
-            // Or you can leave it as it was in the previous file.
             
             // --- MODULE 1: PASSWORD GENERATOR ---
             const passEls = {
