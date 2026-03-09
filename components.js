@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             Utility Deck 
                             <span class="font-normal text-slate-400 text-base">by Param Kalaria</span>
                         </h1>
-                        <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wider uppercase">v1.0.0 Release</p>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wider uppercase">V1.1</p>
                     </div>
                 </div>
 

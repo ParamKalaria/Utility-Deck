@@ -3,19 +3,26 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="theme-color" content="#135bec">
     
-    <title>About Param Kalaria - Utility Deck Developer</title>
-    <meta name="title" content="About Param Kalaria - Utility Deck Developer">
-    <meta name="description" content="Meet Param Kalaria, the creator of Utility Deck. A web developer specializing in secure, client-side applications and system utilities.">
-    <meta name="keywords" content="Param Kalaria, web developer, software engineer, Utility Deck, portfolio, client side security">
+    <title>About Param Kalaria - Utility Deck Creator</title>
+    <meta name="title" content="About Param Kalaria - Utility Deck Creator">
+    <meta name="description" content="Meet Param Kalaria, cybersecurity expert and creator of Utility Deck. Specializing in secure, privacy-first browser applications and developer tools.">
+    <meta name="keywords" content="Param Kalaria, web developer, cybersecurity, software engineer, Utility Deck, portfolio, client side security, privacy first">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://utility-deck.pages.dev/about.html">
 
     <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Utility Deck">
     <meta property="og:url" content="https://utility-deck.pages.dev/about.html">
-    <meta property="og:title" content="Param Kalaria - Web Developer">
-    <meta property="og:description" content="Creator of Utility Deck. Passionate about privacy and performance.">
+    <meta property="og:title" content="About Param Kalaria - Utility Deck Creator">
+    <meta property="og:description" content="Cybersecurity expert and creator of Utility Deck. Building privacy-first browser utilities for developers and security professionals.">
     <meta property="og:image" content="https://utility-deck.pages.dev/og-image.jpg">
+    <meta property="og:image:alt" content="Param Kalaria - Developer Profile">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="About Param Kalaria">
+    <meta name="twitter:description" content="Creator of Utility Deck - Privacy-first browser utilities">
 
     <script type="application/ld+json">
     {
@@ -26,11 +33,41 @@
       "sameAs": [
         "https://www.linkedin.com/in/param-kalaria"
       ],
-      "jobTitle": "Web Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Utility Deck"
+      "jobTitle": "Web Developer & Cybersecurity Expert",
+      "description": "Creator of Utility Deck. Expertise in cybersecurity, Python development, Docker, SecOps, and vulnerability assessment.",
+      "knowsAbout": [
+        "Cybersecurity",
+        "Web Development",
+        "Python",
+        "Docker",
+        "SecOps",
+        "Vulnerability Assessment",
+        "Incident Response"
+      ],
+      "alumniOf": "Web Development",
+      "owns": {
+        "@type": "SoftwareApplication",
+        "name": "Utility Deck",
+        "url": "https://utility-deck.pages.dev/"
       }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://utility-deck.pages.dev/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://utility-deck.pages.dev/about.html"
+      }]
     }
     </script>
 
@@ -54,65 +91,330 @@
     
     <div id="app-header"></div>
 
-    <main class="flex-1 max-w-3xl mx-auto w-full p-4 sm:p-6 lg:p-8">
-        <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-8 shadow-sm">
-            
-            <div class="mb-10 border-b border-gray-100 dark:border-border-dark/50 pb-8">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="p-2 bg-primary/10 rounded-lg text-primary">
-                        <span class="material-symbols-outlined">rocket_launch</span>
-                    </div>
-                    <h1 class="text-3xl font-bold">About Utility Deck</h1>
+    <main class="flex-1 max-w-5xl mx-auto w-full p-4 sm:p-6 lg:p-8">
+        
+        <!-- Hero Section -->
+        <div class="mb-8">
+            <div class="flex items-center gap-4 mb-4">
+                <div class="p-3 bg-gradient-to-br from-primary to-purple-600 rounded-xl text-white shadow-lg">
+                    <span class="material-symbols-outlined text-4xl">terminal</span>
                 </div>
-                <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-lg">
-                    Utility Deck is a suite of browser-based tools designed for quick, secure access to common technical needs. Built with privacy and performance in mind, it operates almost entirely on the client side, ensuring your data never leaves your device unnecessarily.
-                </p>
+                <div>
+                    <h1 class="text-4xl font-bold text-slate-900 dark:text-white">About Utility Deck</h1>
+                    <p class="text-slate-500 dark:text-slate-400 text-lg">Privacy-First Developer Tools</p>
+                </div>
             </div>
+        </div>
+
+        <!-- Mission Statement -->
+        <div class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl border border-blue-200 dark:border-blue-800 p-8 mb-8 shadow-sm">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">flag</span>
+                Our Mission
+            </h2>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-lg mb-4">
+                Utility Deck is a suite of <strong>browser-based security and development tools</strong> designed to provide quick, secure access to common technical needs. Built with a <strong>privacy-first philosophy</strong>, it operates almost entirely on the client side, ensuring your sensitive data never leaves your device unnecessarily.
+            </p>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                In an era where online privacy is increasingly compromised, we believe developers and users deserve tools that respect their data. No tracking, no uploads, no compromises.
+            </p>
+        </div>
+
+        <!-- Key Features -->
+        <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-8 shadow-sm mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-emerald-500">apps</span>
+                Features & Tools
+            </h2>
             
-            <div class="mb-8">
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-slate-400">person</span>
-                    Meet the Developer
-                </h2>
-                <div class="bg-slate-50 dark:bg-[#111318] rounded-xl p-6 border border-gray-200 dark:border-border-dark flex flex-col sm:flex-row gap-6 items-start">
-                    <div class="size-16 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shrink-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Password Generator -->
+                <div class="bg-slate-50 dark:bg-[#111318] rounded-xl p-6 border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-all hover:shadow-md">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2 bg-blue-500/10 rounded-lg text-blue-500">
+                            <span class="material-symbols-outlined text-2xl">lock</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Secure Password Generator</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
+                        Generate cryptographically secure passwords using the browser's Web Crypto API. Customize length (8-64 characters), character types, and even generate bulk passwords (1-20) for download.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-full">crypto.getRandomValues()</span>
+                        <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-full">Bulk Export</span>
+                        <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-full">Client-Side Only</span>
+                    </div>
+                </div>
+
+                <!-- Network Intelligence -->
+                <div class="bg-slate-50 dark:bg-[#111318] rounded-xl p-6 border border-gray-200 dark:border-border-dark hover:border-emerald-500/50 transition-all hover:shadow-md">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
+                            <span class="material-symbols-outlined text-2xl">public</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Network Intelligence</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
+                        Dual-stack network detection showing your IPv4 and IPv6 addresses, ISP information, and geolocation. Uses multiple fallback providers for reliability.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded-full">IPv4/IPv6</span>
+                        <span class="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded-full">ISP Info</span>
+                        <span class="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded-full">Geolocation</span>
+                    </div>
+                </div>
+
+                <!-- File Metadata -->
+                <div class="bg-slate-50 dark:bg-[#111318] rounded-xl p-6 border border-gray-200 dark:border-border-dark hover:border-purple-500/50 transition-all hover:shadow-md">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2 bg-purple-500/10 rounded-lg text-purple-500">
+                            <span class="material-symbols-outlined text-2xl">folder_open</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">File Metadata Viewer</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
+                        Calculate SHA-256 hashes and view file properties locally. Perfect for verifying file integrity without uploading to external services. Export reports for documentation.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded-full">SHA-256</span>
+                        <span class="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded-full">No Upload</span>
+                        <span class="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded-full">Export Report</span>
+                    </div>
+                </div>
+
+                <!-- DNS Testing -->
+                <div class="bg-slate-50 dark:bg-[#111318] rounded-xl p-6 border border-gray-200 dark:border-border-dark hover:border-orange-500/50 transition-all hover:shadow-md">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2 bg-orange-500/10 rounded-lg text-orange-500">
+                            <span class="material-symbols-outlined text-2xl">dns</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">DNS over HTTPS Testing</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
+                        Test connectivity and latency to various DNS-over-HTTPS providers. Compare performance across multiple providers to optimize your network configuration.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded-full">DoH</span>
+                        <span class="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded-full">Latency Test</span>
+                        <span class="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded-full">Multi-Provider</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Principles -->
+        <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-8 shadow-sm mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-blue-500">verified</span>
+                Core Principles
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="relative p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 hover:shadow-lg transition-all group">
+                    <div class="absolute top-4 right-4 text-blue-500 opacity-20 group-hover:opacity-40 transition-opacity">
+                        <span class="material-symbols-outlined text-5xl">lock</span>
+                    </div>
+                    <span class="material-symbols-outlined text-blue-500 text-3xl mb-3 group-hover:scale-110 transition-transform">shield</span>
+                    <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Privacy-First</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Local processing for sensitive operations. Passwords and file hashes never leave your device. No tracking, no analytics, no compromises.
+                    </p>
+                </div>
+
+                <div class="relative p-6 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 border border-emerald-200 dark:border-emerald-800 hover:shadow-lg transition-all group">
+                    <div class="absolute top-4 right-4 text-emerald-500 opacity-20 group-hover:opacity-40 transition-opacity">
+                        <span class="material-symbols-outlined text-5xl">bolt</span>
+                    </div>
+                    <span class="material-symbols-outlined text-emerald-500 text-3xl mb-3 group-hover:scale-110 transition-transform">speed</span>
+                    <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Lightning Fast</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Built with Tailwind CSS and vanilla JavaScript for optimal performance. No heavy frameworks, no bloat, just pure speed.
+                    </p>
+                </div>
+
+                <div class="relative p-6 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200 dark:border-purple-800 hover:shadow-lg transition-all group">
+                    <div class="absolute top-4 right-4 text-purple-500 opacity-20 group-hover:opacity-40 transition-opacity">
+                        <span class="material-symbols-outlined text-5xl">code</span>
+                    </div>
+                    <span class="material-symbols-outlined text-purple-500 text-3xl mb-3 group-hover:scale-110 transition-transform">visibility</span>
+                    <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Open & Transparent</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        View source code to verify our privacy claims. No obfuscation, no hidden scripts. What you see is what you get.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-8 shadow-sm mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-purple-500">code</span>
+                Technology Stack
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="text-center p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-colors">
+                    <div class="text-2xl mb-2">⚡</div>
+                    <h4 class="font-bold text-sm mb-1">Vanilla JS</h4>
+                    <p class="text-xs text-slate-500">Zero dependencies</p>
+                </div>
+                <div class="text-center p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-colors">
+                    <div class="text-2xl mb-2">🎨</div>
+                    <h4 class="font-bold text-sm mb-1">Tailwind CSS</h4>
+                    <p class="text-xs text-slate-500">Utility-first styling</p>
+                </div>
+                <div class="text-center p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-colors">
+                    <div class="text-2xl mb-2">🔒</div>
+                    <h4 class="font-bold text-sm mb-1">Web Crypto API</h4>
+                    <p class="text-xs text-slate-500">Native security</p>
+                </div>
+                <div class="text-center p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-colors">
+                    <div class="text-2xl mb-2">☁️</div>
+                    <h4 class="font-bold text-sm mb-1">Cloudflare Pages</h4>
+                    <p class="text-xs text-slate-500">Edge hosting</p>
+                </div>
+                <div class="text-center p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-colors">
+                    <div class="text-2xl mb-2">🐳</div>
+                    <h4 class="font-bold text-sm mb-1">Docker</h4>
+                    <p class="text-xs text-slate-500">Containerized</p>
+                </div>
+                <div class="text-center p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-colors">
+                    <div class="text-2xl mb-2">🌐</div>
+                    <h4 class="font-bold text-sm mb-1">HTTPS/TLS 1.3</h4>
+                    <p class="text-xs text-slate-500">Encrypted traffic</p>
+                </div>
+                <div class="text-center p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-colors">
+                    <div class="text-2xl mb-2">🎯</div>
+                    <h4 class="font-bold text-sm mb-1">SEO Optimized</h4>
+                    <p class="text-xs text-slate-500">Structured data</p>
+                </div>
+                <div class="text-center p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-colors">
+                    <div class="text-2xl mb-2">🌙</div>
+                    <h4 class="font-bold text-sm mb-1">Dark Mode</h4>
+                    <p class="text-xs text-slate-500">Eye-friendly UI</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Developer Profile -->
+        <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-8 shadow-sm mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-blue-500">person</span>
+                Meet the Developer
+            </h2>
+            
+            <div class="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-[#111318] dark:to-blue-900/10 rounded-xl p-6 border border-gray-200 dark:border-border-dark">
+                <div class="flex flex-col sm:flex-row gap-6 items-start">
+                    <div class="size-20 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg shrink-0 ring-4 ring-blue-100 dark:ring-blue-900/30">
                         PK
                     </div>
                     
-                    <div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Param Kalaria</h3>
-                        <p class="text-sm text-primary font-medium mb-3">Creator</p>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                            Motivated Cyber Security professional and Master’s graduate with a strong foundation in SecOps, Vulnerability Assessment, and Incident Response. Proven ability to build custom security tools using Python and Docker, and translate complex technical concepts into training for engineering professionals. A proactive problem-solver capable of executing technical tasks autonomously to enhance organizational security posture.
-                        </p>
+                    <div class="flex-1">
+                        <div class="mb-4">
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Param Kalaria</h3>
+                            <p class="text-sm text-primary font-semibold mb-1">Creator & Developer</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Cybersecurity Professional • Master's Graduate</p>
+                        </div>
                         
-                        <a href="https://www.linkedin.com/in/param-kalaria" target="_blank" class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#006396] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-sm">
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                            Motivated Cyber Security professional with a strong foundation in <strong>SecOps, Vulnerability Assessment, and Incident Response</strong>. Proven ability to build custom security tools using Python and Docker, and translate complex technical concepts into actionable training for engineering professionals. A proactive problem-solver capable of executing technical tasks autonomously to enhance organizational security posture.
+                        </p>
+
+                        <div class="bg-white dark:bg-surface-dark rounded-lg p-4 border border-gray-200 dark:border-border-dark mb-4">
+                            <p class="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2">🎯 Expertise:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded">Cybersecurity</span>
+                                <span class="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded">Python</span>
+                                <span class="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded">Docker</span>
+                                <span class="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-2 py-1 rounded">SecOps</span>
+                                <span class="text-xs bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-1 rounded">Vulnerability Assessment</span>
+                                <span class="text-xs bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded">Incident Response</span>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.linkedin.com/in/param-kalaria" target="_blank" class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#006396] text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95">
                             <span class="material-symbols-outlined text-[18px]">link</span>
                             Connect on LinkedIn
                         </a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <h2 class="text-xl font-bold mb-4 mt-8">Core Principles</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="p-4 rounded-lg bg-slate-50 dark:bg-[#111318] border border-gray-200 dark:border-border-dark hover:border-primary/50 transition-colors group">
-                    <span class="material-symbols-outlined text-blue-500 mb-2 group-hover:scale-110 transition-transform">lock</span>
-                    <h3 class="font-bold">Secure</h3>
-                    <p class="text-xs text-slate-500">Local processing for passwords and file hashes.</p>
+        <!-- Why Utility Deck -->
+        <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-8 shadow-sm mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-emerald-500">lightbulb</span>
+                Why Utility Deck?
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="flex gap-4 items-start">
+                    <div class="size-10 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-blue-500">check_circle</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-1">No Registration Required</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300">Jump straight in. No accounts, no sign-ups, no email verification. Just tools that work.</p>
+                    </div>
                 </div>
-                <div class="p-4 rounded-lg bg-slate-50 dark:bg-[#111318] border border-gray-200 dark:border-border-dark hover:border-emerald-500/50 transition-colors group">
-                    <span class="material-symbols-outlined text-emerald-500 mb-2 group-hover:scale-110 transition-transform">bolt</span>
-                    <h3 class="font-bold">Fast</h3>
-                    <p class="text-xs text-slate-500">Built on Tailwind CSS and Vanilla JS for speed.</p>
+
+                <div class="flex gap-4 items-start">
+                    <div class="size-10 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-emerald-500">security</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-1">Cryptographically Secure</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300">Uses browser's native Web Crypto API for password generation and file hashing. Military-grade security.</p>
+                    </div>
                 </div>
-                <div class="p-4 rounded-lg bg-slate-50 dark:bg-[#111318] border border-gray-200 dark:border-border-dark hover:border-purple-500/50 transition-colors group">
-                    <span class="material-symbols-outlined text-purple-500 mb-2 group-hover:scale-110 transition-transform">public</span>
-                    <h3 class="font-bold">Dual Stack</h3>
-                    <p class="text-xs text-slate-500">Advanced IPv4 and IPv6 network intelligence.</p>
+
+                <div class="flex gap-4 items-start">
+                    <div class="size-10 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-purple-500">devices</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-1">Works Everywhere</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300">Responsive design that adapts to any device. Desktop, tablet, or mobile — it just works.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start">
+                    <div class="size-10 rounded-full bg-orange-500/10 flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-orange-500">offline_bolt</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-1">Mostly Offline</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300">Password and file tools work completely offline. Network features only query public APIs when needed.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start">
+                    <div class="size-10 rounded-full bg-red-500/10 flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-red-500">update</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-1">Always Free</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300">No premium tiers, no paywalls, no subscriptions. Every feature is free and will remain free forever.</p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Version & Updates -->
+        <div class="bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-xl border border-primary/30 p-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-3">
+                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                <span class="font-bold text-primary">Current Version: V1.1</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-2">
+                Released March 2026 • Built with ❤️ for developers and security professionals
+            </p>
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+                Regularly updated with new features and security enhancements
+            </p>
+        </div>
+
     </main>
     
     <div id="app-footer"></div>

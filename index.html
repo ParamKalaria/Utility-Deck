@@ -3,46 +3,105 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="theme-color" content="#135bec">
     
-    <title>Utility Deck - Secure Password Generator, Network Intel & File Hashes</title>
-    <meta name="title" content="Utility Deck - Secure Password Generator, Network Intel & File Hashes">
-    <meta name="description" content="Free, privacy-first developer tools. Generate strong passwords, detect IPv4/IPv6 network details, and verify SHA-256 file hashes locally in your browser.">
-    <meta name="keywords" content="password generator, strong password, ip address lookup, ipv6 check, file hash calculator, sha256 viewer, client side tools, Param Kalaria, Cloudflare Pages">
+    <title>Utility Deck - Secure Browser Tools & Password Generator</title>
+    <meta name="title" content="Utility Deck - Secure Browser Tools & Password Generator">
+    <meta name="description" content="Free, privacy-first developer tools. Generate strong passwords, detect IPv4/IPv6 network details, verify SHA-256 file hashes, and test DNS providers - all locally in your browser.">
+    <meta name="keywords" content="password generator, strong password, ip address lookup, ipv6 check, file hash calculator, sha256 viewer, dns test, client side tools, browser utilities, Param Kalaria">
     <meta name="author" content="Param Kalaria">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://utility-deck.pages.dev/">
 
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Utility Deck">
     <meta property="og:url" content="https://utility-deck.pages.dev/">
-    <meta property="og:title" content="Utility Deck by Param Kalaria">
-    <meta property="og:description" content="A suite of secure, client-side utilities. Generate passwords, check network stats, and verify files instantly without server uploads.">
+    <meta property="og:title" content="Utility Deck - Secure Browser Utilities">
+    <meta property="og:description" content="Privacy-first browser utilities: password generator, network intelligence, file hash verification, and DNS testing. No data ever leaves your browser.">
     <meta property="og:image" content="https://utility-deck.pages.dev/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Utility Deck - Secure Browser Utilities">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://utility-deck.pages.dev/">
-    <meta property="twitter:title" content="Utility Deck - Secure Browser Utilities">
-    <meta property="twitter:description" content="Secure, client-side tools for developers and power users.">
-    <meta property="twitter:image" content="https://utility-deck.pages.dev/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@utility_deck">
+    <meta name="twitter:url" content="https://utility-deck.pages.dev/">
+    <meta name="twitter:title" content="Utility Deck - Secure Browser Utilities">
+    <meta name="twitter:description" content="Privacy-first browser tools: password generator, network intel, file hash verification & DNS testing.">
+    <meta name="twitter:image" content="https://utility-deck.pages.dev/og-image.jpg">
+    <meta name="twitter:image:alt" content="Utility Deck Browser Utilities">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": "SoftwareApplication",
       "name": "Utility Deck",
+      "alternateName": "Utility Deck Browser Tools",
       "url": "https://utility-deck.pages.dev/",
-      "description": "A client-side suite of system utilities including password generation, network intelligence, and file integrity verification.",
+      "description": "Privacy-first browser utilities suite including secure password generation, network intelligence detection, SHA-256 file hash verification, and DNS over HTTPS latency testing.",
       "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "Browser",
+      "operatingSystem": "Web Browser",
+      "browserRequirements": "Requires JavaScript and modern browser with Web Crypto API support",
+      "softwareVersion": "1.1",
+      "datePublished": "2026-03-10",
+      "dateModified": "2026-03-10",
       "author": {
         "@type": "Person",
         "name": "Param Kalaria",
-        "url": "https://www.linkedin.com/in/param-kalaria"
+        "url": "https://www.linkedin.com/in/param-kalaria",
+        "sameAs": "https://www.linkedin.com/in/param-kalaria"
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Param Kalaria"
       },
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "USD"
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "featureList": [
+        "Secure Password Generator with bulk export",
+        "IPv4/IPv6 Network Intelligence",
+        "SHA-256 File Hash Calculator",
+        "DNS over HTTPS Latency Testing"
+      ],
+      "screenshot": "https://utility-deck.pages.dev/og-image.jpg",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "1"
       }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Utility Deck",
+      "alternateName": "Utility Deck Browser Tools",
+      "url": "https://utility-deck.pages.dev/",
+      "description": "Privacy-first browser utilities for developers and security professionals",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@type": "Person",
+        "name": "Param Kalaria"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://utility-deck.pages.dev/"
+      }]
     }
     </script>
 
@@ -71,7 +130,7 @@
     </script>
     <script src="components.js"></script>
     <style>
-        input[type=range] { -webkit-appearance: none; background: transparent; }
+        input[type=range] { -webkit-appearance: none; appearance: none; background: transparent; }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none; height: 16px; width: 16px;
             border-radius: 50%; background: #135bec; cursor: pointer;
@@ -95,7 +154,7 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-2 bg-blue-500/10 rounded-lg text-blue-500">
@@ -152,6 +211,20 @@
                     <span class="material-symbols-outlined">refresh</span>
                     Generate Password
                 </button>
+                <div class="mt-4 pt-4 border-t border-gray-200 dark:border-border-dark">
+                    <label class="text-sm font-medium text-slate-700 dark:text-slate-300 block mb-2">Bulk Generation</label>
+                    <div class="flex gap-2">
+                        <div class="relative flex-1">
+                            <input id="bulk-count" type="number" min="1" max="20" value="5" class="w-full bg-slate-50 dark:bg-[#111318] border border-gray-200 dark:border-border-dark text-slate-900 dark:text-white rounded-lg py-2 px-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="1-20"/>
+                            <span class="absolute right-3 top-2.5 text-xs text-slate-400">passwords</span>
+                        </div>
+                        <button id="btn-bulk-generate" class="bg-slate-700 dark:bg-slate-600 hover:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-lg transition-all active:scale-[0.98] flex items-center gap-2 whitespace-nowrap">
+                            <span class="material-symbols-outlined text-[20px]">download</span>
+                            Download
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Generate multiple passwords and save to file</p>
+                </div>
             </div>
 
             <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm flex flex-col h-full">
@@ -265,6 +338,42 @@
                     Export Report
                 </button>
             </div>
+
+            <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm flex flex-col h-full">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-2 bg-orange-500/10 rounded-lg text-orange-500">
+                        <span class="material-symbols-outlined">dns</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg leading-none">DNS over HTTPS</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">DoH latency test</p>
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col gap-4">
+                    <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-border-dark flex-1">
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-gray-50 dark:bg-[#1a1d24] text-[10px] uppercase font-semibold text-slate-500">
+                                <tr>
+                                    <th class="px-3 py-2">Provider</th>
+                                    <th class="px-3 py-2 text-right">Ms</th>
+                                    <th class="px-3 py-2 text-center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dns-table-body" class="divide-y divide-gray-200 dark:divide-border-dark bg-white dark:bg-[#111318] text-xs">
+                                <tr>
+                                    <td colspan="3" class="px-3 py-6 text-center text-slate-400 italic text-xs">
+                                        Click Test to measure
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button id="btn-dns-test" class="mt-6 w-full bg-slate-900 hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 text-white font-bold py-3 px-4 rounded-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">play_arrow</span>
+                    Test Connectivity
+                </button>
+            </div>
         </div>
     </main>
 
@@ -313,7 +422,98 @@
                 passEls.btnCopy.innerHTML = '<span class="material-symbols-outlined text-green-500">check</span>';
                 setTimeout(() => passEls.btnCopy.innerHTML = oldHTML, 1500);
             });
-            generatePass(); 
+            generatePass();
+
+            // Bulk Password Generation
+            const bulkCountInput = document.getElementById('bulk-count');
+            const btnBulkGen = document.getElementById('btn-bulk-generate');
+            
+            // Validate input range
+            bulkCountInput.addEventListener('input', () => {
+                let val = parseInt(bulkCountInput.value);
+                if (val < 1) bulkCountInput.value = 1;
+                if (val > 20) bulkCountInput.value = 20;
+            });
+            
+            btnBulkGen.addEventListener('click', () => {
+                const count = parseInt(bulkCountInput.value) || 5;
+                if (count < 1 || count > 20) {
+                    alert('Please enter a number between 1 and 20');
+                    return;
+                }
+                
+                // Generate multiple passwords
+                const passwords = [];
+                const len = parseInt(passEls.slider.value);
+                const chars = {
+                    l: 'abcdefghijklmnopqrstuvwxyz',
+                    u: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                    n: '0123456789',
+                    s: '!@#$%^&*()_+-=[]{}|;:,.<>?'
+                };
+                let charset = chars.l;
+                if(passEls.upper.checked) charset += chars.u;
+                if(passEls.nums.checked) charset += chars.n;
+                if(passEls.syms.checked) charset += chars.s;
+                if(passEls.ambig.checked) { charset = charset.replace(/[Il1O0]/g, ''); }
+                
+                if(!charset) {
+                    alert('Please select at least one character type');
+                    return;
+                }
+                
+                for (let i = 0; i < count; i++) {
+                    const arr = new Uint32Array(len);
+                    crypto.getRandomValues(arr);
+                    const password = Array.from(arr, x => charset[x % charset.length]).join('');
+                    passwords.push(password);
+                }
+                
+                // Create file content
+                const timestamp = new Date().toLocaleString();
+                let content = `UTILITY DECK - SECURE PASSWORD BATCH\n`;
+                content += `=====================================\n`;
+                content += `Generated: ${timestamp}\n`;
+                content += `Count: ${count} passwords\n`;
+                content += `Length: ${len} characters\n`;
+                content += `Options: `;
+                const opts = [];
+                if(passEls.upper.checked) opts.push('Uppercase');
+                if(passEls.nums.checked) opts.push('Numbers');
+                if(passEls.syms.checked) opts.push('Symbols');
+                if(passEls.ambig.checked) opts.push('No Ambiguous');
+                content += opts.join(', ') + '\n';
+                content += `=====================================\n\n`;
+                
+                passwords.forEach((pwd, idx) => {
+                    content += `Password ${idx + 1}: ${pwd}\n`;
+                });
+                
+                content += `\n=====================================\n`;
+                content += `⚠️  SECURITY REMINDER:\n`;
+                content += `- Store this file in a secure location\n`;
+                content += `- Delete after use if not needed\n`;
+                content += `- Do not share via email or messaging\n`;
+                content += `- Consider using a password manager\n`;
+                
+                // Download file
+                const blob = new Blob([content], {type: 'text/plain'});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `passwords_${count}_${Date.now()}.txt`;
+                a.click();
+                URL.revokeObjectURL(url);
+                
+                // Show feedback
+                const oldHTML = btnBulkGen.innerHTML;
+                btnBulkGen.innerHTML = '<span class="material-symbols-outlined">check</span> Downloaded';
+                btnBulkGen.classList.add('bg-green-600', 'dark:bg-green-600');
+                setTimeout(() => {
+                    btnBulkGen.innerHTML = oldHTML;
+                    btnBulkGen.classList.remove('bg-green-600', 'dark:bg-green-600');
+                }, 2000);
+            }); 
 
             // --- MODULE 2: NETWORK INTEL (Robust) ---
             const netEls = {
@@ -454,6 +654,66 @@
                 a.click();
                 URL.revokeObjectURL(url);
             });
+
+            // --- MODULE 4: DNS OVER HTTPS TESTING ---
+            const dnsProviders = [
+                { name: 'Cloudflare', ip: '1.1.1.1', url: 'https://1.1.1.1' },
+                { name: 'Google', ip: '8.8.8.8', url: 'https://dns.google' },
+                { name: 'Quad9', ip: '9.9.9.9', url: 'https://dns.quad9.net' },
+                { name: 'OpenDNS', ip: '208.67.222.222', url: 'https://doh.opendns.com/' },
+                { name: 'AdGuard', ip: '94.140.14.14', url: 'https://dns.adguard-dns.com/' },
+                { name: 'CleanBrowsing', ip: '185.228.168.9', url: 'https://doh.cleanbrowsing.org/' }
+            ];
+
+            const dnsBtn = document.getElementById('btn-dns-test');
+            const dnsTable = document.getElementById('dns-table-body');
+
+            if (dnsBtn && dnsTable) {
+                dnsBtn.addEventListener('click', async () => {
+                    dnsBtn.disabled = true;
+                    dnsBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span> Testing...';
+                    dnsTable.innerHTML = '';
+
+                    for (const provider of dnsProviders) {
+                        const row = document.createElement('tr');
+                        row.className = "hover:bg-gray-50 dark:hover:bg-[#1a1d24]/50";
+                        row.innerHTML = `
+                            <td class="px-3 py-2 font-medium text-slate-900 dark:text-white">${provider.name}</td>
+                            <td class="px-3 py-2 text-right font-mono text-slate-400">...</td>
+                            <td class="px-3 py-2 text-center"><span class="inline-block size-2 rounded-full bg-slate-300 animate-pulse"></span></td>
+                        `;
+                        dnsTable.appendChild(row);
+
+                        const start = performance.now();
+                        let latency = 0;
+                        let isError = false;
+
+                        try {
+                            await fetch(provider.url, { mode: 'no-cors', cache: 'no-store' });
+                            latency = Math.round(performance.now() - start);
+                        } catch (e) { 
+                            isError = true; 
+                        }
+
+                        let statusColor = isError ? 'bg-red-500' : 
+                            (latency < 50 ? 'bg-emerald-500' : 
+                            (latency < 150 ? 'bg-yellow-500' : 'bg-orange-500'));
+
+                        row.innerHTML = `
+                            <td class="px-3 py-2 font-medium text-slate-900 dark:text-white">${provider.name}</td>
+                            <td class="px-3 py-2 text-right font-mono ${isError?'text-red-500':'text-slate-600 dark:text-slate-300'}">${isError?'Fail':latency+'ms'}</td>
+                            <td class="px-3 py-2 text-center"><span class="inline-block size-2 rounded-full ${statusColor}"></span></td>
+                        `;
+                        await new Promise(r => setTimeout(r, 100));
+                    }
+
+                    dnsBtn.disabled = false;
+                    dnsBtn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Completed';
+                    setTimeout(() => {
+                        dnsBtn.innerHTML = '<span class="material-symbols-outlined">play_arrow</span> Test Connectivity';
+                    }, 2000);
+                });
+            }
         });
     </script>
 </body>

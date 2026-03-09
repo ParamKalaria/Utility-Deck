@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://paramhomelab.online/sitemap.xml
+Sitemap: https://utility-deck.pages.dev/sitemap.xml
