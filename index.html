@@ -11,24 +11,24 @@
     <meta name="keywords" content="password generator, strong password, ip address lookup, ipv6 check, file hash calculator, sha256 viewer, dns test, client side tools, browser utilities, Param Kalaria">
     <meta name="author" content="Param Kalaria">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://utility-deck.pages.dev/">
+    <link rel="canonical" href="https://paramhomelab.online/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Utility Deck">
-    <meta property="og:url" content="https://utility-deck.pages.dev/">
+    <meta property="og:url" content="https://paramhomelab.online/">
     <meta property="og:title" content="Utility Deck - Secure Browser Utilities">
     <meta property="og:description" content="Privacy-first browser utilities: password generator, network intelligence, file hash verification, and DNS testing. No data ever leaves your browser.">
-    <meta property="og:image" content="https://utility-deck.pages.dev/og-image.jpg">
+    <meta property="og:image" content="https://paramhomelab.online/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Utility Deck - Secure Browser Utilities">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@utility_deck">
-    <meta name="twitter:url" content="https://utility-deck.pages.dev/">
+    <meta name="twitter:url" content="https://paramhomelab.online/">
     <meta name="twitter:title" content="Utility Deck - Secure Browser Utilities">
     <meta name="twitter:description" content="Privacy-first browser tools: password generator, network intel, file hash verification & DNS testing.">
-    <meta name="twitter:image" content="https://utility-deck.pages.dev/og-image.jpg">
+    <meta name="twitter:image" content="https://paramhomelab.online/og-image.jpg">
     <meta name="twitter:image:alt" content="Utility Deck Browser Utilities">
 
     <script type="application/ld+json">
@@ -37,12 +37,12 @@
       "@type": "SoftwareApplication",
       "name": "Utility Deck",
       "alternateName": "Utility Deck Browser Tools",
-      "url": "https://utility-deck.pages.dev/",
+      "url": "https://paramhomelab.online/",
       "description": "Privacy-first browser utilities suite including secure password generation, network intelligence detection, SHA-256 file hash verification, and DNS over HTTPS latency testing.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Web Browser",
       "browserRequirements": "Requires JavaScript and modern browser with Web Crypto API support",
-      "softwareVersion": "1.1",
+    "softwareVersion": "1.2",
       "datePublished": "2026-03-10",
       "dateModified": "2026-03-10",
       "author": {
@@ -67,7 +67,7 @@
         "SHA-256 File Hash Calculator",
         "DNS over HTTPS Latency Testing"
       ],
-      "screenshot": "https://utility-deck.pages.dev/og-image.jpg",
+      "screenshot": "https://paramhomelab.online/og-image.jpg",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5",
@@ -82,7 +82,7 @@
       "@type": "WebSite",
       "name": "Utility Deck",
       "alternateName": "Utility Deck Browser Tools",
-      "url": "https://utility-deck.pages.dev/",
+      "url": "https://paramhomelab.online/",
       "description": "Privacy-first browser utilities for developers and security professionals",
       "inLanguage": "en-US",
       "publisher": {
@@ -100,7 +100,7 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://utility-deck.pages.dev/"
+        "item": "https://paramhomelab.online/"
       }]
     }
     </script>
@@ -128,7 +128,7 @@
             },
         }
     </script>
-    <script src="components.js"></script>
+    <script src="scripts/components.js"></script>
     <style>
         input[type=range] { -webkit-appearance: none; appearance: none; background: transparent; }
         input[type=range]::-webkit-slider-thumb {
@@ -260,6 +260,18 @@
                         </div>
                     </div>
                     <div class="space-y-3 mt-2 pt-2 border-t border-gray-100 dark:border-border-dark/50">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100 dark:border-border-dark/50">
+                            <span class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">badge</span> IPv4 Class
+                            </span>
+                            <span id="net-v4-class" class="text-sm font-medium text-right text-slate-400">---</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100 dark:border-border-dark/50">
+                            <span class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">badge</span> IPv6 Class
+                            </span>
+                            <span id="net-v6-class" class="text-sm font-medium text-right text-slate-400">---</span>
+                        </div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-100 dark:border-border-dark/50">
                             <span class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-[18px]">dns</span> ISP
@@ -519,15 +531,50 @@
             const netEls = {
                 v4: document.getElementById('net-ipv4'),
                 v6: document.getElementById('net-ipv6'),
+                v4Class: document.getElementById('net-v4-class'),
+                v6Class: document.getElementById('net-v6-class'),
                 statusV4: document.getElementById('status-v4'),
                 statusV6: document.getElementById('status-v6'),
                 isp: document.getElementById('net-isp'),
                 loc: document.getElementById('net-loc'),
                 btn: document.getElementById('btn-refresh-net')
             };
+
+            const getIPv4Class = (ip) => {
+                const m = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec((ip || '').trim());
+                if (!m) return 'Unknown';
+                const octets = m.slice(1).map(Number);
+                if (octets.some(n => n < 0 || n > 255)) return 'Unknown';
+                const [first, second] = octets;
+
+                if (first === 10 || (first === 172 && second >= 16 && second <= 31) || (first === 192 && second === 168)) return 'Private';
+                if (first === 127) return 'Loopback';
+                if (first >= 1 && first <= 126) return 'Class A';
+                if (first >= 128 && first <= 191) return 'Class B';
+                if (first >= 192 && first <= 223) return 'Class C';
+                if (first >= 224 && first <= 239) return 'Class D (Multicast)';
+                if (first >= 240 && first <= 255) return 'Class E (Reserved)';
+                return 'Reserved';
+            };
+
+            const getIPv6Class = (ip) => {
+                const clean = (ip || '').trim().toLowerCase();
+                if (!clean || clean === 'not available') return 'Unknown';
+                if (clean === '::1') return 'Loopback';
+                if (clean === '::') return 'Unspecified';
+                if (clean.startsWith('ff')) return 'Multicast';
+                if (/^fe[89ab]/.test(clean)) return 'Link-Local Unicast';
+                if (clean.startsWith('fc') || clean.startsWith('fd')) return 'Unique Local';
+                if (clean.startsWith('2001:db8')) return 'Documentation';
+                if (clean.includes('::ffff:')) return 'IPv4-Mapped';
+                return 'Global Unicast';
+            };
+
             const fetchNet = async () => {
                 netEls.v4.textContent = "Checking...";
                 netEls.v6.textContent = "Checking...";
+                netEls.v4Class.textContent = "---";
+                netEls.v6Class.textContent = "---";
                 netEls.statusV4.className = "size-2 rounded-full bg-yellow-400 animate-pulse";
                 netEls.statusV6.className = "size-2 rounded-full bg-yellow-400 animate-pulse";
                 netEls.isp.textContent = "---";
@@ -545,6 +592,7 @@
                         else ip = (await res.json()).ip;
                         if (ip) {
                             netEls.v4.textContent = ip;
+                            netEls.v4Class.textContent = getIPv4Class(ip);
                             netEls.statusV4.className = "size-2 rounded-full bg-emerald-500";
                             v4Found = true;
                             if (!detectedIp) detectedIp = ip;
@@ -554,6 +602,7 @@
                 }
                 if (!v4Found) {
                     netEls.v4.textContent = "Not Available";
+                    netEls.v4Class.textContent = "Not Available";
                     netEls.statusV4.className = "size-2 rounded-full bg-slate-500";
                 }
                 // V6
@@ -568,6 +617,7 @@
                         else ip = (await res.json()).ip;
                         if (ip) {
                             netEls.v6.textContent = ip;
+                            netEls.v6Class.textContent = getIPv6Class(ip);
                             netEls.statusV6.className = "size-2 rounded-full bg-emerald-500";
                             v6Found = true;
                             if (!detectedIp) detectedIp = ip; 
@@ -577,24 +627,70 @@
                 }
                 if (!v6Found) {
                     netEls.v6.textContent = "Not Available";
+                    netEls.v6Class.textContent = "Not Available";
                     netEls.statusV6.className = "size-2 rounded-full bg-slate-500";
                 }
-                // Geo
-                if (detectedIp) {
-                    try {
-                        const geoRes = await fetch(`https://ipapi.co/${detectedIp}/json/`);
-                        if (geoRes.ok) {
-                            const data = await geoRes.json();
-                            netEls.isp.textContent = data.org || data.asn;
-                            netEls.loc.textContent = `${data.city}, ${data.country_code}`;
+                // Geo / ISP with resilient API fallback.
+                {
+                    const geoLookups = [];
+
+                    // Prefer explicit IP lookups when IP detection succeeded.
+                    if (detectedIp) {
+                        geoLookups.push(
+                            {
+                                url: `https://ipapi.co/${detectedIp}/json/`,
+                                parse: (data) => ({
+                                    isp: data.org || data.asn || "Unknown",
+                                    loc: [data.city, data.country_name || data.country_code].filter(Boolean).join(", ")
+                                })
+                            },
+                            {
+                                url: `https://ipwho.is/${detectedIp}`,
+                                parse: (data) => ({
+                                    isp: data.connection?.isp || data.connection?.org || "Unknown",
+                                    loc: [data.city, data.country].filter(Boolean).join(", ")
+                                })
+                            }
+                        );
+                    }
+
+                    // Fall back to requester-based endpoints (no explicit IP).
+                    geoLookups.push(
+                        {
+                            url: "https://ipapi.co/json/",
+                            parse: (data) => ({
+                                isp: data.org || data.asn || "Unknown",
+                                loc: [data.city, data.country_name || data.country_code].filter(Boolean).join(", ")
+                            })
+                        },
+                        {
+                            url: "https://ipwho.is/",
+                            parse: (data) => ({
+                                isp: data.connection?.isp || data.connection?.org || "Unknown",
+                                loc: [data.city, data.country].filter(Boolean).join(", ")
+                            })
                         }
-                    } catch (e) {
-                         try {
-                            const fallbackRes = await fetch(`https://ipwho.is/${detectedIp}`);
-                            const data = await fallbackRes.json();
-                            netEls.isp.textContent = data.connection?.isp || "Unknown";
-                            netEls.loc.textContent = `${data.city}, ${data.country_code}`;
-                        } catch (err) { netEls.isp.textContent = "Geo Blocked"; }
+                    );
+
+                    let geoResolved = false;
+                    for (const provider of geoLookups) {
+                        try {
+                            const res = await fetch(provider.url, { cache: "no-store" });
+                            if (!res.ok) continue;
+                            const data = await res.json();
+                            const parsed = provider.parse(data);
+                            if ((parsed.isp && parsed.isp !== "Unknown") || parsed.loc) {
+                                netEls.isp.textContent = parsed.isp || "Unknown";
+                                netEls.loc.textContent = parsed.loc || "Unavailable";
+                                geoResolved = true;
+                                break;
+                            }
+                        } catch (e) {}
+                    }
+
+                    if (!geoResolved) {
+                        netEls.isp.textContent = "Unavailable";
+                        netEls.loc.textContent = "Unavailable";
                     }
                 }
             };

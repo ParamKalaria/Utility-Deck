@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const inPagesDir = window.location.pathname.toLowerCase().includes("/pages/");
+    const navPaths = inPagesDir
+        ? {
+            home: "../index.html",
+            cyberNews: "cyber-news.html",
+            privacy: "privacy.html",
+            about: "about.html"
+        }
+        : {
+            home: "index.html",
+            cyberNews: "pages/cyber-news.html",
+            privacy: "pages/privacy.html",
+            about: "pages/about.html"
+        };
     
     // --- 1. HEADER COMPONENT ---
     const headerHTML = `
@@ -6,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
-                    <a href="index.html" class="flex items-center justify-center size-9 rounded-lg bg-primary/10 text-primary transition-transform hover:scale-105">
+                    <a href="${navPaths.home}" class="flex items-center justify-center size-9 rounded-lg bg-primary/10 text-primary transition-transform hover:scale-105">
                         <span class="material-symbols-outlined text-[24px]">terminal</span>
                     </a>
                     <div>
@@ -14,14 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
                             Utility Deck 
                             <span class="font-normal text-slate-400 text-base">by Param Kalaria</span>
                         </h1>
-                        <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wider uppercase">V1.1</p>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wider uppercase">V1.2</p>
                     </div>
                 </div>
 
                 <div class="flex items-center gap-6 text-sm font-medium text-slate-500 dark:text-slate-400" id="nav-links">
-                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
-                    <a href="privacy.html" class="hover:text-primary transition-colors">Privacy</a>
-                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="${navPaths.home}" class="hover:text-primary transition-colors">Home</a>
+                    <a href="${navPaths.cyberNews}" class="hover:text-primary transition-colors">Cyber News</a>
+                    <a href="${navPaths.privacy}" class="hover:text-primary transition-colors">Privacy</a>
+                    <a href="${navPaths.about}" class="hover:text-primary transition-colors">About</a>
                 </div>
             </div>
         </div>
@@ -49,11 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if(appFooter) appFooter.innerHTML = footerHTML;
 
     // --- 4. HIGHLIGHT ACTIVE LINK ---
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const currentPath = new URL(window.location.href).pathname.replace(/\/+$/, "");
     const links = document.querySelectorAll('#nav-links a');
     
     links.forEach(link => {
-        if(link.getAttribute('href') === currentPage) {
+        const href = link.getAttribute('href');
+        if(!href) return;
+        const linkPath = new URL(href, window.location.href).pathname.replace(/\/+$/, "");
+        if(linkPath === currentPath) {
             link.classList.add('text-primary'); // Active color
         }
     });

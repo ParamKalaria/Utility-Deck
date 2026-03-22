@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="theme-color" content="#135bec">
+
+    <title>Cyber News - Utility Deck</title>
+    <meta name="title" content="Cyber News - Utility Deck">
+    <meta name="description" content="Live cybersecurity headlines from trusted sources in one privacy-first dashboard.">
+    <meta name="keywords" content="cyber security news, cybersecurity rss, hackers news, bleepingcomputer, dark reading, securityweek">
+    <meta name="author" content="Param Kalaria">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://paramhomelab.online/pages/cyber-news.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Utility Deck">
+    <meta property="og:url" content="https://paramhomelab.online/pages/cyber-news.html">
+    <meta property="og:title" content="Cyber News - Utility Deck">
+    <meta property="og:description" content="Track the latest cybersecurity headlines from multiple trusted RSS sources.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Cyber News - Utility Deck">
+    <meta name="twitter:description" content="Cybersecurity news dashboard powered by RSS feeds.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Cyber News",
+      "description": "Cybersecurity news dashboard for Utility Deck",
+    "url": "https://paramhomelab.online/pages/cyber-news.html",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Utility Deck",
+        "url": "https://paramhomelab.online/"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://paramhomelab.online/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cyber News",
+        "item": "https://paramhomelab.online/pages/cyber-news.html"
+      }]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1a1d24",
+                        "border-dark": "#282e39"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="../scripts/components.js"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased min-h-screen flex flex-col">
+
+    <div id="app-header"></div>
+
+    <main class="flex-1 max-w-[1400px] w-full mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold mb-2">Cyber News</h1>
+            <p class="text-slate-500 dark:text-slate-400 max-w-3xl">
+                Aggregated cybersecurity headlines from trusted RSS feeds. Click any headline to open the original story.
+            </p>
+        </div>
+
+        <div class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-red-500/10 rounded-lg text-red-500">
+                        <span class="material-symbols-outlined">newspaper</span>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-lg leading-none">Live Feed Monitor</h2>
+                        <p id="feed-status" class="text-xs text-slate-500 dark:text-slate-400 mt-1">Loading feeds...</p>
+                    </div>
+                </div>
+                <div class="flex gap-2 w-full sm:w-auto">
+                    <button id="btn-export-news" class="bg-slate-700 dark:bg-slate-600 hover:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold py-2.5 px-4 rounded-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2 flex-1 sm:flex-none" disabled>
+                        <span class="material-symbols-outlined">download</span>
+                        Export .txt
+                    </button>
+                    <button id="btn-refresh-news" class="bg-primary hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2 flex-1 sm:flex-none">
+                        <span class="material-symbols-outlined">refresh</span>
+                        Refresh News
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                <div class="inline-flex items-center rounded-lg border border-gray-200 dark:border-border-dark overflow-hidden bg-slate-50 dark:bg-[#111318]">
+                    <button id="btn-view-list" class="px-3 py-2 text-xs font-semibold bg-primary text-white">List</button>
+                    <button id="btn-view-card" class="px-3 py-2 text-xs font-semibold text-slate-500 dark:text-slate-300">Card</button>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span id="selected-count" class="text-xs text-slate-500 dark:text-slate-400">0 selected</span>
+                    <button id="btn-remove-selected" class="bg-red-600 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-2 px-3 rounded-lg transition-all text-xs" disabled>
+                        Remove Selected
+                    </button>
+                </div>
+            </div>
+
+            <div id="list-view" class="overflow-hidden rounded-xl border border-gray-200 dark:border-border-dark">
+                <table class="w-full text-sm text-left">
+                    <thead class="bg-gray-50 dark:bg-[#1a1d24] text-[10px] uppercase font-semibold text-slate-500">
+                        <tr>
+                            <th class="px-3 py-3 text-center w-[40px]">Select</th>
+                            <th class="px-4 py-3">Source</th>
+                            <th class="px-4 py-3">Headline & Quick Read</th>
+                            <th class="px-4 py-3">Published</th>
+                        </tr>
+                    </thead>
+                    <tbody id="news-table-body" class="divide-y divide-gray-200 dark:divide-border-dark bg-white dark:bg-[#111318]">
+                        <tr>
+                            <td colspan="4" class="px-4 py-8 text-center text-slate-400 italic">Fetching latest cybersecurity headlines...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="card-view" class="hidden">
+                <div id="news-card-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                    <div class="col-span-full text-center text-slate-400 italic py-8">Fetching latest cybersecurity headlines...</div>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-4">
+                Sources are loaded from data source/cybernews.txt and displayed client-side.
+            </p>
+        </div>
+    </main>
+
+    <div id="app-footer"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const bodyEl = document.getElementById("news-table-body");
+            const cardGridEl = document.getElementById("news-card-grid");
+            const statusEl = document.getElementById("feed-status");
+            const refreshBtn = document.getElementById("btn-refresh-news");
+            const exportBtn = document.getElementById("btn-export-news");
+            const listViewEl = document.getElementById("list-view");
+            const cardViewEl = document.getElementById("card-view");
+            const listBtn = document.getElementById("btn-view-list");
+            const cardBtn = document.getElementById("btn-view-card");
+            const removeSelectedBtn = document.getElementById("btn-remove-selected");
+            const selectedCountEl = document.getElementById("selected-count");
+
+            let allItems = [];
+            let removedIds = new Set();
+            let selectedIds = new Set();
+            let currentView = "list";
+
+            const formatDate = (input) => {
+                if (!input) return "-";
+                const d = new Date(input);
+                if (Number.isNaN(d.getTime())) return "-";
+                return d.toLocaleString();
+            };
+
+            const escapeHtml = (str) => (str || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/\"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+
+            const safeUrl = (value) => {
+                try {
+                    const url = new URL((value || "").trim());
+                    return (url.protocol === "http:" || url.protocol === "https:") ? url.href : "#";
+                } catch (e) {
+                    return "#";
+                }
+            };
+
+            const quickRead = (value) => {
+                const plain = (value || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+                return plain.length > 220 ? `${plain.slice(0, 220)}...` : (plain || "Summary not available.");
+            };
+
+            const toStableId = (item) => {
+                const raw = `${item.link || ""}|${item.title || ""}`;
+                return btoa(unescape(encodeURIComponent(raw))).replace(/=+$/g, "");
+            };
+
+            const visibleItems = () => allItems.filter((item) => !removedIds.has(item.id));
+
+            const updateSelectedMeta = () => {
+                const count = selectedIds.size;
+                selectedCountEl.textContent = `${count} selected`;
+                removeSelectedBtn.disabled = count === 0;
+            };
+
+            const parseItemsFromXml = (xmlText, sourceUrl) => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(xmlText, "text/xml");
+                const xmlError = doc.querySelector("parsererror");
+                if (xmlError) return [];
+
+                const sourceHost = new URL(sourceUrl).hostname.replace(/^www\./, "");
+                const nodes = Array.from(doc.querySelectorAll("item, entry")).slice(0, 8);
+                return nodes.map((node) => {
+                    const titleNode = node.querySelector("title");
+                    const linkNode = node.querySelector("link");
+                    const pubNode = node.querySelector("pubDate, published, updated");
+                    const descNode = node.querySelector("description, summary, content");
+
+                    let link = "#";
+                    if (linkNode) {
+                        link = linkNode.getAttribute("href") || linkNode.textContent || "#";
+                    }
+
+                    return {
+                        source: sourceHost,
+                        title: (titleNode && titleNode.textContent) || "Untitled",
+                        link: link.trim(),
+                        published: (pubNode && pubNode.textContent) || "",
+                        snippet: (descNode && descNode.textContent) || ""
+                    };
+                });
+            };
+
+            const fetchFeed = async (feedUrl) => {
+                try {
+                    const jsonProxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+                    const res = await fetch(jsonProxy);
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.status === "ok" && Array.isArray(data.items)) {
+                            const source = data.feed && data.feed.title ? data.feed.title : new URL(feedUrl).hostname;
+                            return data.items.slice(0, 8).map((item) => ({
+                                source,
+                                title: item.title || "Untitled",
+                                link: item.link || "#",
+                                published: item.pubDate || "",
+                                snippet: item.description || item.content || ""
+                            }));
+                        }
+                    }
+                } catch (e) {}
+
+                try {
+                    const xmlProxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`;
+                    const res = await fetch(xmlProxy, { cache: "no-store" });
+                    if (res.ok) {
+                        const xmlText = await res.text();
+                        return parseItemsFromXml(xmlText, feedUrl);
+                    }
+                } catch (e) {}
+
+                return [];
+            };
+
+            const renderRows = (items) => {
+                if (!items.length) {
+                    bodyEl.innerHTML = '<tr><td colspan="4" class="px-4 py-8 text-center text-slate-400 italic">No headlines available right now. Try refresh.</td></tr>';
+                    return;
+                }
+
+                bodyEl.innerHTML = items.map((item) => `
+                    <tr class="hover:bg-gray-50 dark:hover:bg-[#1a1d24]/50">
+                        <td class="px-3 py-3 text-center align-top">
+                            <input class="news-select rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 bg-transparent mt-1" type="checkbox" data-id="${escapeHtml(item.id)}" ${selectedIds.has(item.id) ? "checked" : ""}/>
+                        </td>
+                        <td class="px-4 py-3 text-xs font-medium text-slate-500 dark:text-slate-400 whitespace-nowrap align-top">${escapeHtml(item.source)}</td>
+                        <td class="px-4 py-3">
+                            <a class="text-slate-900 dark:text-white hover:text-primary transition-colors font-medium" href="${safeUrl(item.link)}" target="_blank" rel="noopener noreferrer">
+                                ${escapeHtml(item.title)}
+                            </a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">${escapeHtml(quickRead(item.snippet))}</p>
+                        </td>
+                        <td class="px-4 py-3 text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap align-top">${escapeHtml(formatDate(item.published))}</td>
+                    </tr>
+                `).join("");
+            };
+
+            const renderCards = (items) => {
+                if (!items.length) {
+                    cardGridEl.innerHTML = '<div class="col-span-full text-center text-slate-400 italic py-8">No headlines available right now. Try refresh.</div>';
+                    return;
+                }
+
+                cardGridEl.innerHTML = items.map((item) => `
+                    <article class="rounded-xl border border-gray-200 dark:border-border-dark bg-slate-50 dark:bg-[#111318] p-4 flex flex-col gap-3">
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <p class="text-[10px] uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">${escapeHtml(item.source)}</p>
+                                <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">${escapeHtml(formatDate(item.published))}</p>
+                            </div>
+                            <input class="news-select rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 bg-transparent" type="checkbox" data-id="${escapeHtml(item.id)}" ${selectedIds.has(item.id) ? "checked" : ""}/>
+                        </div>
+                        <a class="font-bold text-slate-900 dark:text-white hover:text-primary transition-colors leading-snug" href="${safeUrl(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">${escapeHtml(quickRead(item.snippet))}</p>
+                    </article>
+                `).join("");
+            };
+
+            const renderAll = () => {
+                const items = visibleItems();
+                renderRows(items);
+                renderCards(items);
+                updateSelectedMeta();
+            };
+
+            const applyView = (view) => {
+                currentView = view;
+                const isList = currentView === "list";
+                listViewEl.classList.toggle("hidden", !isList);
+                cardViewEl.classList.toggle("hidden", isList);
+
+                listBtn.classList.toggle("bg-primary", isList);
+                listBtn.classList.toggle("text-white", isList);
+                listBtn.classList.toggle("text-slate-500", !isList);
+                listBtn.classList.toggle("dark:text-slate-300", !isList);
+
+                cardBtn.classList.toggle("bg-primary", !isList);
+                cardBtn.classList.toggle("text-white", !isList);
+                cardBtn.classList.toggle("text-slate-500", isList);
+                cardBtn.classList.toggle("dark:text-slate-300", isList);
+            };
+
+            const exportNewsTxt = () => {
+                if (!allItems.length) return;
+
+                const generatedAt = new Date();
+                const sourceMap = new Map();
+                allItems.forEach((item) => {
+                    sourceMap.set(item.source, (sourceMap.get(item.source) || 0) + 1);
+                });
+
+                const lines = [];
+                lines.push("UTILITY DECK - CYBER NEWS DIGEST");
+                lines.push("============================================");
+                lines.push(`Generated: ${generatedAt.toLocaleString()}`);
+                lines.push(`Total Headlines: ${allItems.length}`);
+                lines.push(`Visible Headlines: ${visibleItems().length}`);
+                lines.push("");
+                lines.push("SOURCE BREAKDOWN");
+                lines.push("--------------------------------------------");
+                Array.from(sourceMap.entries()).sort((a, b) => b[1] - a[1]).forEach(([source, count]) => {
+                    lines.push(`${source}: ${count}`);
+                });
+                lines.push("");
+                lines.push("HEADLINES");
+                lines.push("--------------------------------------------");
+
+                allItems.forEach((item, idx) => {
+                    lines.push(`${idx + 1}. ${item.title}`);
+                    lines.push(`   Source: ${item.source}`);
+                    lines.push(`   Published: ${formatDate(item.published)}`);
+                    lines.push(`   Link: ${item.link}`);
+                    lines.push(`   Summary: ${quickRead(item.snippet)}`);
+                    lines.push("");
+                });
+
+                const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `cyber_news_digest_${Date.now()}.txt`;
+                a.click();
+                URL.revokeObjectURL(url);
+            };
+
+            const loadFeeds = async () => {
+                refreshBtn.disabled = true;
+                exportBtn.disabled = true;
+                refreshBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Loading...';
+                statusEl.textContent = "Loading feeds...";
+
+                let feedLinks = [];
+                try {
+                    const res = await fetch("../data source/cybernews.txt", { cache: "no-store" });
+                    if (res.ok) {
+                        const txt = await res.text();
+                        feedLinks = txt.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+                    }
+                } catch (e) {}
+
+                if (!feedLinks.length) {
+                    bodyEl.innerHTML = '<tr><td colspan="4" class="px-4 py-8 text-center text-red-500 italic">Unable to load data source/cybernews.txt feed list.</td></tr>';
+                    cardGridEl.innerHTML = '<div class="col-span-full text-center text-red-500 italic py-8">Unable to load data source/cybernews.txt feed list.</div>';
+                    statusEl.textContent = "Feed list load failed";
+                    refreshBtn.disabled = false;
+                    refreshBtn.innerHTML = '<span class="material-symbols-outlined">refresh</span> Refresh News';
+                    return;
+                }
+
+                const settled = await Promise.allSettled(feedLinks.map((link) => fetchFeed(link)));
+                const fetchedItems = settled.flatMap((entry) => entry.status === "fulfilled" ? entry.value : []);
+
+                const deduped = [];
+                const seen = new Set();
+                fetchedItems.forEach((item) => {
+                    const key = `${(item.link || "").trim()}|${(item.title || "").trim()}`;
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        deduped.push(item);
+                    }
+                });
+
+                deduped.sort((a, b) => {
+                    const aDate = new Date(a.published).getTime() || 0;
+                    const bDate = new Date(b.published).getTime() || 0;
+                    return bDate - aDate;
+                });
+
+                allItems = deduped.slice(0, 60).map((item) => ({ ...item, id: toStableId(item) }));
+                removedIds = new Set();
+                selectedIds = new Set();
+                renderAll();
+
+                const successCount = settled.filter((entry) => entry.status === "fulfilled" && entry.value.length > 0).length;
+                statusEl.textContent = `${allItems.length} headlines loaded from ${successCount}/${feedLinks.length} feeds`;
+
+                refreshBtn.disabled = false;
+                exportBtn.disabled = allItems.length === 0;
+                refreshBtn.innerHTML = '<span class="material-symbols-outlined">refresh</span> Refresh News';
+            };
+
+            bodyEl.addEventListener("change", (event) => {
+                if (!event.target.classList.contains("news-select")) return;
+                const id = event.target.getAttribute("data-id");
+                if (!id) return;
+                if (event.target.checked) selectedIds.add(id);
+                else selectedIds.delete(id);
+                renderAll();
+            });
+
+            cardGridEl.addEventListener("change", (event) => {
+                if (!event.target.classList.contains("news-select")) return;
+                const id = event.target.getAttribute("data-id");
+                if (!id) return;
+                if (event.target.checked) selectedIds.add(id);
+                else selectedIds.delete(id);
+                renderAll();
+            });
+
+            removeSelectedBtn.addEventListener("click", () => {
+                selectedIds.forEach((id) => removedIds.add(id));
+                selectedIds = new Set();
+                renderAll();
+                statusEl.textContent = `${visibleItems().length} headlines currently visible`;
+            });
+
+            listBtn.addEventListener("click", () => applyView("list"));
+            cardBtn.addEventListener("click", () => applyView("card"));
+            refreshBtn.addEventListener("click", loadFeeds);
+            exportBtn.addEventListener("click", exportNewsTxt);
+
+            applyView("list");
+            loadFeeds();
+        });
+    </script>
+</body>
+</html>

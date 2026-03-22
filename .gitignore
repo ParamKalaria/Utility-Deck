@@ -1,4 +1,4 @@
 screen.png
-Dockerfile
-docker-compose.yml
-test.html
+docker/Dockerfile
+docker/docker-compose.yml
+pages/test.html
